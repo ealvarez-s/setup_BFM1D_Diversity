@@ -1,0 +1,21 @@
+#!/bin/bash
+
+##SBATCH --qos=qos_special
+#SBATCH --job-name=venezia1
+#SBATCH -N 1 -n 1
+#SBATCH --time=00:40:00
+#SBATCH --mem=10gb
+#SBATCH --account=OGS20_PRACE_P
+#SBATCH --partition=gll_meteo_prod
+#SBATCH --qos=gll_qos_meteoogs
+cd /galileo/home/userexternal/plazzari/FABM/boussole-test
+
+module purge
+module load profile/advanced
+module load autoload
+module load intel/pe-xe-2018--binary
+module load intelmpi/2018--binary
+module load netcdf/4.6.1--intel--pe-xe-2018--binary
+module load netcdff/4.4.4--intel--pe-xe-2018--binary
+
+./gotm
